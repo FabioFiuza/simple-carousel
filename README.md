@@ -2,13 +2,15 @@
 
 A simple carousel package.
 
+[PubDev](https://pub.dev/packages/simple_carousel)
+
 ## Instalation
 
 Add `simple_carousel: 0.0.1` in your `pubspec.yaml`.
 
 ## Motivation
 
-This simple widget that will improve as time. If your colaborate please access [github project](https://github.com/FabioFiuza/simple-carousel) and send a pullrequest.
+This simple widget that will improve with time. If your collaborate please access [github project](https://github.com/FabioFiuza/simple-carousel) project and send a pull request.
 
 ## How to use
 

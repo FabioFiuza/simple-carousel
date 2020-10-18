@@ -51,6 +51,7 @@ class _SimpleCarousel extends State<SimpleCarousel> {
       children: [
         Flexible(
           child: PageView(
+            key: ValueKey('PageViewKey'),
             children: widget.children,
             physics: ClampingScrollPhysics(),
             onPageChanged: (index) {
@@ -87,12 +88,14 @@ class _SimpleCarousel extends State<SimpleCarousel> {
         for (int i = 0; i < itemCount; i++)
           if (i == currentPageValue) ...[
             _circleBar(
+              key: ValueKey('circleBar$i'),
               isActive: true,
               colorIconCircleBar: colorIconCircleBar,
               colorIconCircleBarActive: colorIconCircleBarActive,
             )
           ] else
             _circleBar(
+              key: ValueKey('circleBar$i'),
               isActive: false,
               colorIconCircleBar: colorIconCircleBar,
               colorIconCircleBarActive: colorIconCircleBarActive,
@@ -102,11 +105,13 @@ class _SimpleCarousel extends State<SimpleCarousel> {
   }
 
   Widget _circleBar({
+    Key key,
     bool isActive,
     Color colorIconCircleBarActive,
     Color colorIconCircleBar,
   }) {
     return AnimatedContainer(
+      key: key,
       duration: Duration(milliseconds: 150),
       margin: EdgeInsets.symmetric(horizontal: 8),
       height: isActive ? 12 : 8,
