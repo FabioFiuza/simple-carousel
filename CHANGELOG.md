@@ -1,3 +1,3 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - 2020-10-18
 
-* TODO: Describe initial release.
+- Added simple creation of the carousel widget using Flutter pageView.

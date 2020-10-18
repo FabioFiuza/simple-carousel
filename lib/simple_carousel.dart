@@ -2,18 +2,26 @@ library simple_carousel;
 
 import 'package:flutter/material.dart';
 
+/// Import that the parent widget has a size.
 class SimpleCarousel extends StatefulWidget {
   const SimpleCarousel({
     Key key,
-    this.numberPages,
-    this.children,
+    @required this.numberPages,
+    @required this.children,
     this.colorIconCircleBarActive,
     this.colorIconCircleBar,
-  }) : super(key: key);
+  })  : assert(numberPages != null),
+        assert(children != null),
+        super(key: key);
 
   final int numberPages;
+
   final List<Widget> children;
+
+  /// Default color is [Colors.grey[700]].
   final Color colorIconCircleBarActive;
+
+  /// Default color is [Colors.grey].
   final Color colorIconCircleBar;
 
   @override
@@ -22,7 +30,7 @@ class SimpleCarousel extends StatefulWidget {
 
 class _SimpleCarousel extends State<SimpleCarousel> {
   PageController _controller;
-  int indexPage = 0;
+  int _indexPage = 0;
 
   @override
   void initState() {
@@ -47,18 +55,21 @@ class _SimpleCarousel extends State<SimpleCarousel> {
             physics: ClampingScrollPhysics(),
             onPageChanged: (index) {
               setState(() {
-                indexPage = index;
+                _indexPage = index;
               });
             },
           ),
+        ),
+        SizedBox(
+          height: 8,
         ),
         _buildPageIndicator(
           colorIconCircleBar: widget.colorIconCircleBar ?? Colors.grey,
           colorIconCircleBarActive:
               widget.colorIconCircleBarActive ?? Colors.grey[700],
           itemCount: widget.numberPages,
-          currentPageValue: indexPage,
-        )
+          currentPageValue: _indexPage,
+        ),
       ],
     );
   }
@@ -74,7 +85,13 @@ class _SimpleCarousel extends State<SimpleCarousel> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         for (int i = 0; i < itemCount; i++)
-          if (i == currentPageValue) ...[_circleBar(isActive: true)] else
+          if (i == currentPageValue) ...[
+            _circleBar(
+              isActive: true,
+              colorIconCircleBar: colorIconCircleBar,
+              colorIconCircleBarActive: colorIconCircleBarActive,
+            )
+          ] else
             _circleBar(
               isActive: false,
               colorIconCircleBar: colorIconCircleBar,
