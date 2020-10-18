@@ -12,7 +12,7 @@ This simple widget that will improve as time. If your colaborate please access [
 
 ## How to use
 
-The parent widget should have a size
+The parent widget should have a size.
 
 ```
 class FruitCarouselPage extends StatelessWidget {
@@ -67,3 +67,5 @@ class FruitCarouselItem extends StatelessWidget {
   }
 }
 ```
+
+[![example](https://i.postimg.cc/nz5XZzG7/Captura-de-Tela-2020-10-18-a-s-14-36-32.png)](https://postimg.cc/476fQXMN)
