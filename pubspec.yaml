@@ -1,8 +1,8 @@
 name: simple_carousel
 description: A simple carousel package
 version: 0.0.1
-author:
-homepage:
+author: Fabio Fiuza <fabiomindua@gmail.com>
+homepage: "https://github.com/FabioFiuza/simple-carousel.git"
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
